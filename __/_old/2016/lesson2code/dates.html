@@ -1,0 +1,17 @@
+<html><head><script>
+
+today     = new Date();
+halloween = new Date(2016, 9, 31, 18, 0, 0);//9 not 10
+
+ms      = halloween - today;
+
+seconds =      ms / 1000;
+minutes = seconds / 60;
+hours   = minutes / 60;
+days    =   hours / 24;
+
+alert(days.toFixed(2)  + " days until halloween");
+alert(Math.round(days) + " days until halloween");
+
+</script></head><body>
+</body></html>

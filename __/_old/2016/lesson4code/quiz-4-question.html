@@ -1,0 +1,36 @@
+<html>
+<head>
+<style>
+	img{width:200px;}
+</style>
+
+	<script>
+
+	window.onload=function(){
+		document.getElementById("cat").onclick=function(){
+			this.style.left = parseInt(this.style.left) + 10 + "px";
+		}
+		
+		
+		document.getElementById("fish").onclick=function(){
+		
+			var rightSide = parseInt(this.style.left) + this.width;
+			
+			if((rightSide + 10) >= parseInt(document.getElementById("cat").style.left)){
+				alert("ouch");
+			}else{
+				this.style.left = parseInt(this.style.left) + 10 + "px";
+			}
+		}		
+		
+	}
+		
+	</script>
+</head>
+<body>
+	<img src="fish.jpg" id="fish" style="position:absolute; left:12px" >
+	
+	<img src="cat.jpg" id="cat" style="position:absolute; left:222px" >
+	
+</body>
+</html>

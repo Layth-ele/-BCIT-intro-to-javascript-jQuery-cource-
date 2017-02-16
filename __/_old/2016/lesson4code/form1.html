@@ -1,0 +1,44 @@
+<html><head>
+
+<script>
+
+window.onload=function(){
+	document.forms[0].onsubmit=function(){
+
+		for(i = 0; i < document.forms[0].elements.length; i++){
+			if(document.forms[0].elements[i].className.indexOf("required") != -1){
+				if(document.forms[0].elements[i].value.trim() == ""){
+					document.forms[0].elements[i].style.backgroundColor = 'yellow';
+					document.forms[0].elements[i].focus();
+					return false; // don't submit
+				}
+			}
+		
+		
+			if(document.forms[0].elements[i].className.indexOf("number") != -1){
+				if(isNaN(document.forms[0].elements[i].value)){
+					document.forms[0].elements[i].style.backgroundColor = 'lightgreen';
+					document.forms[0].elements[i].select();
+					return false; // don't submit				
+				}
+			}
+		}
+	
+	}
+}
+
+</script>
+</head><body>
+
+<form action="fake.php">
+
+	username: <input type="text" name="u" id="u" class="required"><br>
+	year born: <input type="text" name="y" id="y" class="required number"><br>
+	shoe size: <input type="text" name="s" id="s" class = "number"><br>
+	email address:<input type="text" name="e" id="e" class="email required"><br>
+	homepage:<input type="text" name="w" id="w" class="url"><br>
+	
+	<input type="submit">
+</form>
+
+</body></html>

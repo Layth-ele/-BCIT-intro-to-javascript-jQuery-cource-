@@ -1,0 +1,67 @@
+<html><head>
+<script>
+
+function copyText(){
+	var myPar = document.getElementById("p");
+	var myTextBoxData = document.getElementById("t").value;
+	
+	//alert(myPar.childNodes.length)
+	
+	if(myPar.childNodes.length == 0){
+		myPar.appendChild(document.createTextNode(myTextBoxData))
+		return
+	}else{
+		// there are already child nodes in the paragraph
+		for(let i = 0; i < myPar.childNodes.length; i++){
+			if(myPar.childNodes[i].nodeType == 3){
+				// text node
+				myPar.childNodes[i].nodeValue = myTextBoxData
+				return
+			}
+		}
+		
+		// by making this far in the function, it means NO TEXT NODES WERE FOUND
+		// in the paragraph
+		myPar.appendChild(document.createTextNode(myTextBoxData))
+	}
+	
+	
+	
+}
+
+
+onload=function(){
+	var myH1 = document.createElement("h1")
+	var myTextNode = document.createTextNode("Hello")
+	
+	var myImage = document.createElement("img")
+	myImage.setAttribute("id", "im")
+	myImage.src="dog.jpg"
+	myImage.width=60
+	
+	
+	
+	var myTextBox = document.createElement("input")
+	myTextBox.type = "text"
+	myTextBox.id = "t"
+	myTextBox.placeholder = "type here"
+	
+	var myParagraph = document.createElement("p")
+	myParagraph.id = "p"	
+	
+	myH1.appendChild(myTextNode)
+	document.body.appendChild(myH1)
+	document.body.appendChild(myImage)
+	document.body.appendChild(document.createElement("br"))
+	document.body.appendChild(myTextBox)
+	document.body.appendChild(document.createElement("br"))	
+	document.body.appendChild(myParagraph)
+	myTextBox.focus()
+	
+	myTextBox.onkeyup = copyText
+}
+
+</script>
+</head>
+<body></body>
+</html>

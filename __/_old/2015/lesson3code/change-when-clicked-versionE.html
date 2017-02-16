@@ -1,0 +1,30 @@
+<html><head><script>
+
+
+
+window.onload = function()
+{
+	if(document.getElementById){
+		alert("get element by id");
+		document.getElementById("d").src="cat.jpg";
+	}else if(document.all['d']){
+		alert("all");
+		document.all['d'].src="cat.jpg";
+	}else if(document.images[0]){
+		alert("0");
+		document.images[0].src="cat.jpg";
+	}else if(document.images['d']){
+		alert("d");
+		document.images['d'].src="cat.jpg";	
+	}else if(document.d){
+		alert('document.d');
+		document.d.src="cat.jpg";
+	}
+
+}
+
+</script></head><body>
+
+<img src="dog.jpg" id="d" name="d">
+
+</body></html>

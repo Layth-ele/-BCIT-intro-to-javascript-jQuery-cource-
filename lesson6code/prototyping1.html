@@ -1,0 +1,32 @@
+<html><head><script>
+
+function Vehicle(kg){
+	this.weightKg = kg
+}
+
+Vehicle.prototype.getWeightLb = function(){
+	return this.weightKg * 2.2
+}
+
+function Car(){}
+
+var mazda = new Car()
+//mazda.drive(); // not a function
+
+Car.prototype = new Vehicle(1000)
+Car.prototype.drive=function(){
+	alert("vroooom")
+}
+
+var boeing747 = new Vehicle(10000);
+alert(boeing747.getWeightLb());
+
+var lamborghini = new Car()
+lamborghini.drive();
+
+
+
+</script>
+</head>
+<body></body>
+</html>

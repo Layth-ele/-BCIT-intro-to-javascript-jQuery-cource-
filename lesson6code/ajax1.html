@@ -1,0 +1,32 @@
+<html>
+<head>
+<script>
+request = new XMLHttpRequest()
+
+
+// $('#t').load('data.txt')
+
+onload=function(){
+	document.getElementById("t").onclick=function(){
+		request.open("GET", "asd.txt?sport=hockey", true)
+		request.onreadystatechange=function(){
+			
+			if(request.readyState == 4){
+				if(request.status == 200){
+					alert(request.readyState)
+					document.getElementById("t").value=
+						request.responseText
+				}else{
+					alert("error " + request.status)
+				}
+			}
+		}
+		request.send(null)
+	}
+}
+</script>
+</head>
+<body>
+<input type="text" id="t">
+</body>
+</html>

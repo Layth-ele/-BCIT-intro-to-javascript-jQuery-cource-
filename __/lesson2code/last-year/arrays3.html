@@ -1,0 +1,24 @@
+<html>
+<head>
+
+</head>
+<body>
+	<img src="dog.jpg">
+	<img src="cat.jpg">
+	<img src="fish.jpg">
+
+<script>
+	var i = 0;
+	
+	while(i < document.images.length)
+	{
+		alert(document.images[i].src);
+		
+		document.images[i].width=100;
+		document.images[i].style.border="red solid 2px";
+		
+		i++;
+	}
+</script>	
+	</body>
+</html>

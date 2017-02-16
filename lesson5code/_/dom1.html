@@ -1,0 +1,34 @@
+<html>
+<head>
+<script>
+onload=function(){
+	myh1   = document.createElement("h1")
+	mytext = document.createTextNode("Hello")
+	
+	myimg  = document.createElement("img")
+	myimg.setAttribute("src", "cat.jpg")
+	myimg.width=200
+	
+	mytextbox      = document.createElement("input")
+	mytextbox.type = "text"
+	mytextbox.id   = "t"
+	
+	mytextbox.onkeyup=copyText;
+	
+	myparagraph    = document.createElement("p")
+	myparagraph.id = "p"
+	
+	myh1.appendChild(mytext)
+	document.body.appendChild(myh1)
+	document.body.appendChild(myimg)
+	document.body.appendChild(document.createElement("br"))
+	document.body.appendChild(mytextbox)
+	document.body.appendChild(myparagraph)
+}
+function copyText(){
+	document.getElementById('p').innerHTML = this.value
+}
+</script>
+</head>
+<body></body>
+</html>

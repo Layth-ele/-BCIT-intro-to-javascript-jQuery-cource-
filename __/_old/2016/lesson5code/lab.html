@@ -1,0 +1,63 @@
+<html><head><style>	img{width:200px;}</style>
+<script>
+
+window.onload=function(){
+	
+	divAnimals = document.createElement("div");
+	
+	divAnimals.appendChild(document.createTextNode("animals"));
+	divAnimals.style.fontSize = "300%";
+	
+	divLike    = document.createElement("div");
+	divLike.appendChild(document.createTextNode("animals i like"));
+	divLike.style.fontSize = "300%";
+	
+	
+	divHate   = document.createElement("div");
+	divHate.appendChild(document.createTextNode("animals i hate"));
+	divHate.style.fontSize = "300%";	
+	
+	
+	
+	for(i = 0; i <= 4; i++){
+		im = document.createElement('img');
+		im.src = i + ".jpg";
+		divAnimals.appendChild(im);
+		im.onclick=move;
+	}
+	
+	document.body.appendChild(divAnimals);
+	document.body.appendChild(divLike);
+	document.body.appendChild(divHate);
+	
+}
+
+function changeBorder(){
+	x.style.borderStyle = "none";
+}
+
+function move(e){
+	if(this.nextSibling == null){
+		x = this;
+		//var lastBorder = this.style.border;
+		this.style.border = "red solid 50px";
+		setTimeout("changeBorder()", 2000);
+		// last image; time to move divs
+		if(this.parentNode.nextSibling != null){
+			this.parentNode.nextSibling.appendChild(this);
+		}else{
+			// no "next" div exists; go to the FIRST div
+			this.parentNode.parentNode.childNodes[0].appendChild(this);
+		}	
+	}else if(this.nextSibling.nextSibling != null){
+		// has two or more neighbors
+		this.parentNode.insertBefore(this,
+			this.nextSibling.nextSibling);
+	}else{
+		// this is second-last
+		this.parentNode.appendChild(this);
+	}
+}
+
+</script>
+</head><body></body></html>

@@ -1,0 +1,65 @@
+<html>
+<head>
+<script>
+moveDirection    = null
+timer            = null
+currentImage     = 0
+window.onkeydown = checkKey;
+
+function moveRight(){
+	currentImage++
+	if(currentImage >= 30){
+		currentImage = 0
+	}
+	
+	document.getElementById('c').src = "alien/alienrwalk" + currentImage + ".gif"
+	document.getElementById('c').style.left=parseInt(document.getElementById('c').style.left) + 1 + "px"
+}
+
+function moveLeft(){
+	currentImage++
+	if(currentImage >= 30){
+		currentImage = 0
+	}
+	
+	document.getElementById('c').src = "alien/alienlwalk" + currentImage + ".gif"
+	document.getElementById('c').style.left=parseInt(document.getElementById('c').style.left) - 1 + "px"
+}
+
+function checkKey(e){
+	var keyCode = null
+
+	if(e.event){
+		keyCode = e.event
+	}else if(e.which){
+		keyCode = e.which
+	}
+	if(keyCode == null){
+		alert("can't handle this key")
+	}
+
+	if(keyCode == 39){
+	    if(moveDirection != "right"){
+			clearInterval(timer)
+			timer = setInterval("moveRight()", 10)
+			moveDirection = "right"
+		}
+	}else if(keyCode == 37){
+	    if(moveDirection != "left"){
+			clearInterval(timer)
+			timer = setInterval("moveLeft()", 10)
+			moveDirection = "left"
+		}
+	}
+
+	//alert(keyCode)
+}
+
+
+
+</script>
+</head>
+<body>
+<img src="alien/alienrwalk0.gif" style="position:absolute;left:10px" id="c">
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+<script>
+window.onload=function(){
+	document.forms[0].onsubmit=function(){
+		for(i = 0; i < this.elements.length; i++){
+			if((this.elements[i].className.indexOf("required") != -1) && 
+			   (this.elements[i].value == "")){
+			   alert('missing required field');
+			   this.elements[i].style.border = "red solid";
+			   this.elements[i].focus();
+			   return false;
+		    }
+			
+			if((this.elements[i].className.indexOf("numeric") != -1) &&
+			   (isNaN(this.elements[i].value))){
+			   alert(this.elements[i].value + " is not a number");
+			   this.elements[i].style.border = "green solid";
+			   this.elements[i].select();
+			   return false;				
+			}
+		}
+	}
+}
+</script>
+</head>
+<body>
+
+<form action="fake.php">
+	username: <input class="required" "type="text" name="u"><br>
+	email: <input  class="required email" type="text" name="e"><br>
+	year born: <input  class="required numeric" type="text" name="y"><br>
+	shoe size: <input class ="numeric" type="text" name="s"><br>
+	home page: <input  class="url" type="text" name="w"><br>
+	
+	
+	<input type="submit"><br>
+	
+	
+</form>
+
+</body>
+</html>

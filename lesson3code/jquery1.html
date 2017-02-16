@@ -1,0 +1,29 @@
+<html><head>
+
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script>
+onload=function(){
+	$('img').attr('src', 'fish.jpg')
+	$('p').css('font-family', 'arial')
+	
+	$('img:even').click(function(){
+		$(this).attr('width', 20)
+	})
+	
+	$('img').click()
+}
+</script>
+</head>
+<body>
+
+<img src="cat.jpg" id="c" name="c">
+<img src="dog.jpg" >
+<p>hi</p>
+<img src="bird.jpg" >
+<img src="fish.jpg" >
+<p>bye</p>
+<img src="turtle.jpg" >
+
+
+</body>
+</html>

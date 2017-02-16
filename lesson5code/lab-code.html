@@ -1,0 +1,124 @@
+<html><head>
+
+<style>
+.selected{border:red solid 2px}
+</style>
+<script>
+
+selectedLetter = null
+
+
+function handleKeyPress(e){
+
+	var keyCode = null
+
+	if(e.event){
+		keyCode = e.event
+	}else if(e.which){
+		keyCode = e.which
+	}
+
+	if(keyCode == 37){ // left arrow
+		if(selectedLetter != null){
+			document.getElementById(selectedLetter).parentNode.insertBefore(
+				document.getElementById(selectedLetter),
+				document.getElementById(selectedLetter).previousSibling)
+		}	
+	}
+
+
+	if(keyCode >= 65 && keyCode <= 90){
+
+	keyCode +=32
+
+		if(selectedLetter != null){
+			document.getElementById(selectedLetter).className = null
+		}
+		selectedLetter = eval("String.fromCharCode(" + keyCode + ")")
+		//alert("selected letter is "+ selectedLetter);
+
+		document.getElementById(selectedLetter).className = "selected"
+	}
+	
+	//alert(keyCode)
+}
+
+
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Document
+
+// https://www.w3.org/2003/01/dom2-javadoc/org/w3c/dom/Document.html
+
+
+function move(){
+
+
+	
+	if(this.nextSibling == null){ // last image in a div
+		if(this.parentNode.nextSibling == null){ // very last image in very last div
+			
+			document.getElementsByTagName("div")[0].insertBefore(this, 
+				document.getElementsByTagName("div")[0].firstChild) // // go to start of first div
+		}else{
+			this.parentNode.nextSibling.appendChild(this) // just go to end of next div
+		}
+	}else{
+		// not the last image in this div; just move right
+		this.parentNode.insertBefore(this, this.nextSibling.nextSibling)
+	}
+}
+
+function init(){
+	var first = 'a'
+	var last  = 'z'
+	
+	for(let i = first.charCodeAt(0); i <= last.charCodeAt(0); i++){
+		letter = eval("String.fromCharCode(" + i + ")")
+		
+		img = document.createElement('img')
+		img.id = letter
+		img.width = 60
+		img.src = "letters/" + letter + ".png"
+		img.onclick=move
+		
+		document.getElementById("1").appendChild(img)
+	}
+}
+
+onload=function(){
+	var div1 = document.createElement("div")
+	div1.width=600
+	div1.height=300
+	div1.id="1"
+	div1.style.backgroundColor = "pink"
+	div1.style.border="pink solid 2px"
+	
+	
+	var div2 = document.createElement("div")
+	div2.width=600
+	div2.height=300
+	div2.id="2"
+	div2.style.backgroundColor = "cyan"
+	div2.style.border="cyan solid 2px"
+	
+	var div3 = document.createElement("div")
+	div3.width=600
+	div3.height=300
+	div3.id="3"
+	div3.style.backgroundColor = "yellow"
+	div3.style.border="cyan solid 2px"	
+	
+	document.body.appendChild(div1)	
+	document.body.appendChild(div2)	
+	document.body.appendChild(div3)		
+	
+	
+	init()
+	
+	onkeydown=handleKeyPress
+}
+
+</script>
+</head>
+<body></body>
+</html>

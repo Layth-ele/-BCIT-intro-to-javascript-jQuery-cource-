@@ -1,0 +1,16 @@
+<html><head><script>
+
+today = new Date()	// today's timestamp: msec since Jan 1 1970
+xmas  = new Date(2016, 11, 25, 5, 30, 0)
+
+msec = xmas - today
+
+sec  = msec  / 1000
+min  = sec   / 60
+hours= min   / 60
+days = hours / 24
+
+alert(days.toFixed(2)  + " days until xmas")
+alert(Math.round(days) + " days until xmas")
+	
+</script></head><body></body></html>

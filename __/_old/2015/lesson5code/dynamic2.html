@@ -1,0 +1,40 @@
+<html><head><script>
+
+function move(){
+	if(this.nextSibling == null){		
+		if(this.parentNode.nextSibling == null){
+			this.parentNode.previousSibling.insertBefore(this, this.parentNode.previousSibling.firstChild);
+		}else{
+			this.parentNode.nextSibling.appendChild(this);
+		}
+	}else if(this.nextSibling.nextSibling == null){
+		this.parentNode.appendChild(this);
+	}else{
+		this.parentNode.insertBefore(this, this.nextSibling.nextSibling);
+	}
+}
+
+onload=function(){
+	var topDiv = document.createElement("div");
+	topDiv.setAttribute("id", "0");
+	document.body.appendChild(topDiv);
+	
+	for(var i = 0; i < 5; i++){
+		myImage = document.createElement("img");
+		myImage.setAttribute("src", i + ".jpg");
+		myImage.setAttribute("style", "width: 100px");
+		
+		myImage.onclick=move;
+		
+		topDiv.appendChild(myImage);
+	}
+	
+	
+	
+	var bottomDiv = document.createElement("div");
+	bottomDiv.setAttribute("id", "1");
+	document.body.appendChild(bottomDiv);	
+}
+
+
+</script></head><body></body></html>

@@ -1,0 +1,29 @@
+<html><head><script>
+
+
+
+window.onload = function(){
+	/*if(document.getElementById){
+		alert("document.getElementById");
+		document.getElementById('cat').src='dog.jpg';
+	}else *///if(document.all){
+		alert("document.all");
+		document.all['cat'].src='dog.jpg';
+	}/*else if(document.images[0]){
+		alert("document.images[0]");
+		document.images[0].src='dog.jpg';
+	}else if(document.images['cat']){
+		alert("document.images['cat']");
+		document.images['cat'].src='dog.jpg';
+	}else if(document.cat){
+		alert("document.cat");
+		document.cat.src='dog.jpg';
+	}*///else{
+	//	alert('error');
+	//}
+}
+</script></head>
+<body>
+	<img src="cat.jpg" id="cat" name="cat"> 
+</body>
+</html>

@@ -1,0 +1,89 @@
+<html><head><script>
+
+numPicDivs = 0;
+
+function getNumberOfPictureDivs(){
+	var numberOfPictureDivs = 0;
+	
+	for(var i = 0; i < document.getElementsByTagName("div").length; i++){
+		if(document.getElementsByTagName("div")[i].className.indexOf("pictureDiv") != -1){
+			numberOfPictureDivs++;
+		}
+	}
+	//alert(numberOfPictureDivs);
+	return numberOfPictureDivs;
+}
+
+
+function move(){
+	if(this.nextSibling == null){		
+		/*if(this.parentNode.nextSibling == null){
+			this.parentNode.previousSibling.insertBefore(
+				this, this.parentNode.previousSibling.firstChild);
+		}else{
+			this.parentNode.nextSibling.appendChild(this);
+		}*/
+		
+		
+		var nextDivID = ((parseInt(this.parentNode.id) + 1) % numPicDivs);
+		//alert("next id is "+ nextDivID);
+		document.getElementById(nextDivID).appendChild(this);
+		
+	}else if(this.nextSibling.nextSibling == null){
+		this.parentNode.appendChild(this);
+	}else{
+		this.parentNode.insertBefore(this, this.nextSibling.nextSibling);
+	}
+}
+
+onload=function(){
+	
+
+	var topDiv = document.createElement("div");
+	topDiv.setAttribute("id", "0");
+	topDiv.setAttribute("style", "background-color:silver");
+	topDiv.className = "pictureDiv";	
+	document.body.appendChild(topDiv);
+
+	
+	for(var i = 0; i < 5; i++){
+		myImage = document.createElement("img");
+		myImage.setAttribute("src", i + ".jpg");
+		myImage.setAttribute("style", "width: 100px");
+		
+		myImage.onclick=move;
+		
+		topDiv.appendChild(myImage);
+	}
+	
+	var bottomDiv = document.createElement("div");
+	bottomDiv.setAttribute("id", "1");
+	bottomDiv.setAttribute("style", "background-color:pink");
+	bottomDiv.setAttribute("class", "pictureDiv");
+
+	document.body.appendChild(bottomDiv);
+
+	
+	
+	
+		var x = document.createElement("div");
+	x.setAttribute("id", "2");
+	x.setAttribute("style", "background-color:pink");
+	x.setAttribute("class", "pictureDiv");
+
+	document.body.appendChild(x);
+	
+		var y = document.createElement("div");
+	y.setAttribute("id", "3");
+	y.setAttribute("style", "background-color:pink");
+	y.setAttribute("class", "pictureDiv");
+
+	document.body.appendChild(y);	
+	
+	
+	numPicDivs = getNumberOfPictureDivs();
+	//alert(numPicDivs);	
+}
+
+
+</script></head><body></body></html>

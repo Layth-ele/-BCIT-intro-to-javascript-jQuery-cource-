@@ -1,0 +1,51 @@
+<html><head><script>
+
+function initializePics(){
+	var first = "a"
+	var last  = "z"
+
+	var mydiv = document.createElement("div")
+	mydiv.id = "top"
+	mydiv.style.backgroundColor = "pink"
+	
+	var bottomdiv = document.createElement("div")
+	bottomdiv.id = "bottom"
+	bottomdiv.style.backgroundColor = "cyan"
+	
+	for(let i = first.charCodeAt(0); i <= last.charCodeAt(0); i++){
+		letter = eval("String.fromCharCode(" + i + ")")
+		
+		img           = document.createElement("img")
+		img.src       = "letters/" + letter + ".png"
+		img.id        = letter
+		img.width     = 60
+		img.onclick   = move
+		mydiv.appendChild(img)	
+		
+	}
+	document.body.appendChild(mydiv)
+	document.body.appendChild(bottomdiv)
+	
+	
+}
+function move(){
+	// first child in this parent
+	if(this.previousSibling == null){
+		this.parentNode.appendChild(this)
+	}else{
+		this.parentNode.insertBefore(this, this.previousSibling)
+	}
+	this.onclick=null
+}
+
+
+
+
+onload=function(){
+	initializePics();
+}
+
+</script>
+</head>
+<body></body>
+</html>

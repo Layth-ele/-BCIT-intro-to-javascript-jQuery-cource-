@@ -1,0 +1,57 @@
+<html>
+<head>
+
+<style>
+div{width:100%; height: 110px; border-style:solid; vertical-align:middle}
+img.clickable{width:100px;}
+</style>
+<script>
+
+function move(){
+	// if THIS has a neighbor, move THIS after it
+	if(this.nextSibling != null){
+		this.parentNode.insertBefore(this, 
+			this.nextSibling.nextSibling);
+	}else{
+		// no sibling on the right; move DIVs
+		if(this.parentNode.nextSibling != null){
+			this.parentNode.nextSibling.appendChild(this);
+		}else{
+			this.parentNode.previousSibling.appendChild(this);
+		}
+	}
+}
+
+function init(){
+
+	myDiv = document.createElement("div");
+	
+	document.body.appendChild(myDiv);
+
+	for(i = 1; i <= 5; i++){
+	
+		myImg = document.createElement("img");
+		myImg.src = i + ".jpg";
+		myImg.className = "clickable";
+		myImg.onclick=move;
+		
+		
+		
+		myDiv.appendChild(myImg);	
+	}
+
+	myDiv2 = document.createElement("div");
+	document.body.appendChild(myDiv2);
+	
+}
+
+window.onload=function(){
+	init();
+}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

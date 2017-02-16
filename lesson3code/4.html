@@ -1,0 +1,40 @@
+<html><head><script>
+
+
+
+onload=function(){
+
+	var im = null
+
+	if(document.getElementById){
+		alert('1')
+		im = document.getElementById('c')
+	}else if(document.images[0]){
+		alert('2')
+		im = document.images[0]
+	}else if(document.all){
+		alert('3')
+		im = document.all['c']
+	}else if(document.images['c']){
+		alert('4')
+		im = document.images['c']
+	}else if(document.c){
+		alert('5')
+		im = document.c
+	}
+	
+	if(im == null){
+		alert('error')
+	}else{
+		im.src='dog.jpg'
+	}
+}
+</script>
+</head>
+<body>
+
+<img src="cat.jpg" id="c" name="c">
+
+
+</body>
+</html>

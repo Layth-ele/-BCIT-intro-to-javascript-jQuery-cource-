@@ -1,0 +1,27 @@
+<html><head>
+
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.js"></script>
+
+
+
+<script>
+$(function(){
+	$('form').validate();
+});
+
+</script>
+</head><body>
+
+<form action="whatever.php">
+	username:<input class="required" type="text" name="u" id="u"><br>
+	year of birth:<input class="required number" type="text" name="y" id="y"><br>
+	shoe size:<input class="number" type="text" name="s" id="s"><br>
+	email:<input class="required email" type="text" name="e" id="e"><br>
+	url:<input class="url" type="text" name="w" id="w"><br>
+	
+	
+	<input type="submit">
+</form>
+
+</body></html>

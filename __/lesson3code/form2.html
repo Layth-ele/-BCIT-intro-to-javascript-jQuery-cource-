@@ -1,0 +1,35 @@
+<html><head>
+
+<script>
+window.onload=function(){
+	document.forms[0].onsubmit=function(){
+		for(let i = 0; i < document.forms[0].elements.length; i++){
+			if(document.forms[0].elements[i].className.indexOf("required")!=-1){
+				if(document.forms[0].elements[i].value == ""){
+
+					document.forms[0].elements[i].style.backgroundColor="yellow";
+					//alert("missing required field");
+					document.forms[0].elements[i].focus();
+					return false;
+				}
+			}
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+
+<form action="fake.php">
+	username: 		<input class="required" type="text" id="u" name="u"/><br/>
+	email:    		<input class="required email" type="text" id="e" name="e"/><br/>
+	year of birth:  <input class="required number" type="text" id="y" name="y"/><br/>
+	shoe size:		<input class="number" type="text" id="s" name="s"/><br/>
+	website:		<input class="url" type="text" id="w" name="w"/><br/>
+
+	<input type="submit"/>
+</form>
+
+</body>
+</html>

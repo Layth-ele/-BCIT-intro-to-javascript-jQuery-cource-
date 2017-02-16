@@ -1,0 +1,30 @@
+<html><head>
+<script>
+
+
+function resize(){
+	alert(x);
+	alert(y); // error; y is not defined
+
+	this.width = Math.round(this.width/2);
+}
+
+onload=function(){
+	ims = document.getElementsByTagName("img");
+	for(i = 0; i < ims.length; i++){
+		x = 5;
+		var y = 7;
+		ims[i].ondblclick=resize; // callback assigned; no ()
+	}
+	document.getElementById("mydiv").onclick = resize;
+}
+</script>
+</head>
+<body>
+
+
+	<img src="dog.jpg"/>
+	<img src="cat.jpg"/>
+	<img src="bird.jpg"/>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html><head><script>
+
+function disappear()
+{
+	alert(x);
+	alert(y); // can't see y; error
+	this.style.display="none";
+}
+
+window.onload = function()
+{
+	for(var i = 0; i < document.images.length; i++)
+	{
+		x = 40;
+		var y = 50;
+		document.images[i].onclick=disappear;
+	}
+	
+	for(i = 0; i < document.getElementsByTagName("p").length; i++)
+	{
+		
+		document.getElementsByTagName("p")[i].ondblclick=disappear;
+	}	
+}
+
+</script></head><body>
+
+<img src="dog.jpg">
+<p>hi</p>
+<img src="cat.jpg">
+<img src="fish.jpg">
+<img src="bird.jpg">
+<p>bye</p>
+</body></html>

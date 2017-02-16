@@ -1,0 +1,24 @@
+<html><head><style>	img{width:200px;}</style>
+<script>
+	var myTimer = null;
+
+	function move(){
+		document.getElementById("fish").style.left = 
+			parseInt(document.getElementById("fish").style.left)+1+'px';
+	}
+	
+	window.onload=function(){
+		
+		document.getElementById("fish").onclick=function(){
+			if(myTimer == null){
+				myTimer = setInterval("move();", 10);
+			}else{
+				clearInterval(myTimer);
+				myTimer = null;
+			}
+		}
+	}
+	</script>
+</head><body>
+	<img src="fish.jpg" id="fish" style="position:absolute; left:12px" >
+</body></html>

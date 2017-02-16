@@ -1,0 +1,22 @@
+<html><head><script>
+function makeBorder(){
+	this.style.border="red solid 2px";
+}
+window.onload=function(){
+	var pics = document.getElementById("mydiv").getElementsByTagName('img');
+	
+	for(let i = 0; i < pics.length; i++){
+		pics[i].onmouseover=makeBorder;
+	}
+	document.getElementsByTagName("p")[0].onclick=makeBorder;
+}
+</script></head><body>
+<img src="dog.jpg"> 
+<img src="cat.jpg"> 
+<div id="mydiv">
+	<img src="bird.jpg">
+	<img src="fish.jpg">
+	<p>hello</p>
+	<img src="turtle.jpg">
+</div>
+</body></html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+
+onload=function(){
+	ims = document.getElementsByTagName("img");
+	
+	for(i = 0; i < ims.length; i++){
+		ims[i].onclick=function(){
+			this.width = Math.round(this.width / 2);
+		}
+	}
+}
+	
+</script>	
+</head>
+<body>
+
+<img src="dog.jpg"> 
+<img src="cat.jpg"> 
+<img src="bird.jpg">
+<img src="fish.jpg">
+
+
+
+</body>
+</html>

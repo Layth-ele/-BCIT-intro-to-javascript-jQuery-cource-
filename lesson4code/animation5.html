@@ -1,0 +1,29 @@
+<html><head><script>
+
+timerID = null
+
+function move(){
+	document.images[0].style.left=
+		parseInt(document.images[0].style.left) + 1 + "px"
+}
+
+onload=function(){
+	document.images[0].onclick=function(){
+		if(timerID == null){
+			timerID = setInterval("move()", 10)
+		}else{
+			clearInterval(timerID)
+			timerID = null
+		}
+	}
+}
+
+
+</script>
+</head>
+<body>
+
+<img src="cat.jpg" style="left:15px; position:absolute">
+
+</body>
+</html>

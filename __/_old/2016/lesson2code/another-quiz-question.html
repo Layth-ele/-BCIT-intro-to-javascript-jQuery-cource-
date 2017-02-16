@@ -1,0 +1,19 @@
+<html><head></head><body>
+
+<img src="cat.jpg">        <!-- 0 -->
+<img src="dog.jpg">        <!-- 1 -->
+<img src="turtle.jpg">     <!-- 2 -->
+<img src="fish.jpg">       <!-- 3 -->
+<img src="bird.jpg">       <!-- 4 -->
+
+<script>
+	var ims            = document.getElementsByTagName("img");
+	var numberOfImages = ims.length;
+	
+	for(i = 0; i < numberOfImages; i++)
+	{
+		//alert("i am going to resize " + ims[i].src);
+		ims[i].width = 100;
+	}
+</script>
+</body></html>

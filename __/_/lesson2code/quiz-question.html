@@ -1,0 +1,35 @@
+<html>
+<head>
+
+<script>
+// DOM 0:
+window.onload=function(){
+
+for(var i = 0; i < document.images.length; i++){
+	document.images[i].src="fish.jpg";
+}
+
+alert("");
+
+//DOM 1:
+for(var i = 0; i < document.getElementsByTagName('img').length; i++){
+	document.getElementsByTagName('img')[i].src="bird.jpg";
+}
+
+}
+	
+</script>
+
+</head>
+<body>
+
+
+<img src="cat.jpg">
+<img src="dog.jpg">
+<img src="bird.jpg">
+
+
+</body>
+</html>
+
+

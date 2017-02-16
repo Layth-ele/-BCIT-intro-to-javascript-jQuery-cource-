@@ -1,0 +1,27 @@
+<html><head>
+<script>
+		
+function move(){
+	document.images[0].style.left = 
+		parseInt(document.images[0].style.left)+1+"px";
+}
+
+jasonsTimerID = null;
+
+window.onload=function(){
+	document.images[0].onclick=function(){
+		if(jasonsTimerID == null){
+			jasonsTimerID = setInterval("move()", 10);
+		}else{
+			clearInterval(jasonsTimerID);
+			jasonsTimerID = null;
+		}
+	};
+}
+	
+</script>
+</head>
+<body>
+	<img src="fish.jpg" style="position:absolute; left:20px">
+</body>
+</html>

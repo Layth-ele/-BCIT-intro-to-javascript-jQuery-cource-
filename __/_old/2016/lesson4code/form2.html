@@ -1,0 +1,28 @@
+<html><head>
+
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src ="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+
+<script>
+
+	$(function(){
+		$('form').validate();
+	});
+
+	
+
+</script>
+</head><body>
+
+<form action="fake.php">
+
+	username: <input type="text" name="u" id="u" class="required"><br>
+	year born: <input type="text" name="y" id="y" class="required number"><br>
+	shoe size: <input type="text" name="s" id="s" class = "number"><br>
+	email address:<input type="text" name="e" id="e" class="email required"><br>
+	homepage:<input type="text" name="w" id="w" class="url"><br>
+	
+	<input type="submit">
+</form>
+
+</body></html>

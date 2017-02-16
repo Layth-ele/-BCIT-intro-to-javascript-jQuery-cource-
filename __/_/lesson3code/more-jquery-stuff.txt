@@ -1,0 +1,5 @@
+http://www.abebooks.com
+
+learning jquery
+
+http://code.tutsplus.com/courses/30-days-to-learn-jquery

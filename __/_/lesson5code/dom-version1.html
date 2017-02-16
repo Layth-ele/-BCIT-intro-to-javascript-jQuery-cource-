@@ -1,0 +1,45 @@
+<html><head>
+<script>
+
+window.onload=function(){
+	h1 = document.createElement("h1");
+	t1 = document.createTextNode("COMP2015");
+	h1.appendChild(t1);
+	
+	d1 = document.createElement("div");
+	d2 = document.createElement("div");
+	
+	i1 = document.createElement("img");
+	i2 = document.createElement("img");
+	i3 = document.createElement("img");
+	
+	i1.setAttribute("src", "dog.jpg");
+	i1.setAttribute("width", 150);
+	i2.setAttribute("src", "cat.jpg");
+	i2.setAttribute("width", 150);
+	i3.setAttribute("src", "fish.jpg");
+	i3.setAttribute("width", 150);
+	
+	d1.appendChild(i1);
+	d1.appendChild(i2);
+	d1.appendChild(i3);
+	
+	
+	i1.onclick=move;
+	
+	
+	document.body.appendChild(h1);
+	document.body.appendChild(d1);
+	document.body.appendChild(d2);
+}
+
+function move(){
+	this.parentNode.insertBefore(this, this.nextSibling.nextSibling);
+}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

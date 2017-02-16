@@ -1,0 +1,28 @@
+<html><head>
+
+<script>
+
+var request = new XMLHttpRequest();
+
+window.onload=function(){
+	request.open("GET", "data.txt", true);
+	
+	request.onreadystatechange=function(){
+		
+		alert(request.status);
+		
+		document.getElementById("t").value =
+				request.responseText;
+		
+		
+	}
+	
+	request.send(null);
+}
+//$('#t').load('data.txt');
+
+</script></head><body>
+
+<input type="text" id="t">
+
+</body></html>

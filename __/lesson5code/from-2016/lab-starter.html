@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+onload=function(){
+	
+	divAllPics = document.createElement("div");
+	divAllPics.style.backgroundColor = "pink";
+	
+	for(let i = 0; i < 5; i++){
+		img = document.createElement("img");
+		img.src = i + ".jpg";
+		img.width = 200;
+		
+		img.onclick=function(){
+		
+			if(this.nextSibling == null){ // last in the div; move divs
+				if(this.parentNode.nextSibling != null){
+					this.parentNode.nextSibling.appendChild(this);
+				}else{
+					this.parentNode.previousSibling.appendChild(this);
+				}
+			}else{
+				this.parentNode.insertBefore(this, this.nextSibling.nextSibling);
+			}
+		}
+		
+		divAllPics.appendChild(img);
+	}
+	
+	divLikedPics = document.createElement("div");
+	divLikedPics.style.backgroundColor = "cyan";
+	
+	document.body.appendChild(divAllPics);
+	document.body.appendChild(divLikedPics);
+	
+	
+}
+</script>
+</head>
+<body></body>
+</html>

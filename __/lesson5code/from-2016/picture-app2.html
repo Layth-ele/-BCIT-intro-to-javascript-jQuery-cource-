@@ -1,0 +1,46 @@
+<html>
+<head>
+<script>
+onload=function(){
+	myheader = document.createElement("h1");
+	myText = document.createTextNode("Welcome");
+	
+	myImage = document.createElement("img");
+	myImage.src = "cat.jpg";
+	myImage.setAttribute("width","200");
+	
+	myTextBox = document.createElement("input");
+	myTextBox.type = "text";
+	
+	myParag = document.createElement("p");
+	
+	found = false;
+	myTextBox.onkeyup = function(){
+		for(let i = 0; i< myParag.childNodes.length;i++){
+			if(myParag.childNodes[i].nodeType == 3){
+				myParag.childNodes[i].nodeValue = myTextBox.value;
+				
+				found = true;
+				break;
+			}
+		}
+		if(!found){
+			myParag.appendChild(document.createTextNode(myTextBox.value));
+		}
+	}
+	
+	document.body.appendChild(myText);
+	document.body.appendChild(myheader);
+	document.body.appendChild(myImage);
+	document.body.appendChild(document.createElement("br"));
+	
+	document.body.appendChild(myTextBox);
+	myTextBox.focus();
+	document.body.appendChild(myParag);
+	
+	
+}
+</script>
+</head>
+<body></body>
+</html>

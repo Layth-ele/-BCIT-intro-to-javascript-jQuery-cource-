@@ -1,0 +1,17 @@
+<html>
+<head>
+<script>alert(navigator.language);</script>
+<script src="review.js" defer="defer"></script>
+</head>
+<body>
+	<img src="cat.jpg" id="c"/>
+	<img src="dog.jpg" id="d"/>
+
+	<p id="x">the end</p>
+<script>
+	document.images[1].width=10000;
+/*	document.images[1].style.width="10000px"; */
+</script></body>
+</html>
+
+document.gbqf.q.focus()

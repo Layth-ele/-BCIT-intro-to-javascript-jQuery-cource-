@@ -1,0 +1,28 @@
+<html><head>
+<script>
+
+var timer = null;
+
+function move(){
+	im = document.images[0];
+	im.style.left = parseInt(im.style.left) + 1 + 'px';
+}
+
+window.onload=function(){
+	document.images[0].onclick=function(){
+		if(timer == null){
+			timer = setInterval("move()", 100);
+		}else{
+			clearInterval(timer);
+			timer = null;
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+
+<img src="cat.jpg" style="position:absolute; left:12px">
+
+</body></html>

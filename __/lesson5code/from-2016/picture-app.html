@@ -1,0 +1,50 @@
+<html>
+<head>
+<script>
+onload=function(){
+	myH1  = document.createElement("h1");
+	myText = document.createTextNode("Welcome");
+	
+	myH1.appendChild(myText);
+	
+	myImg = document.createElement("img");
+	myImg.src = "dog.jpg";
+	myImg.setAttribute("width", "200");
+	
+	myTextBox = document.createElement("input");
+	myTextBox.type = "text";
+	
+	myPara = document.createElement("p");
+	//myPara.appendChild(document.createTextNode("hi"));
+	myPara.id = "pID";
+	
+	foundExistingTextNode = false;
+	
+	myTextBox.onkeyup=function(){
+		for(let i = 0; i < myPara.childNodes.length; i++){
+			if(myPara.childNodes[i].nodeType == 3){
+				// found a text node; replace its text
+				myPara.childNodes[i].nodeValue = myTextBox.value;
+				foundExistingTextNode = true;
+				break; // replace only the FIRST text node's text
+			}
+		}
+		
+		if(!foundExistingTextNode){
+			// didn't find one; make a new one and append it
+			myPara.appendChild(document.createTextNode(myTextBox.value));
+		}
+	}
+	
+	
+	document.body.appendChild(myH1);
+	document.body.appendChild(myImg);
+	document.body.appendChild(document.createElement("br"));
+	document.body.appendChild(myTextBox);	
+	myTextBox.focus();
+	document.body.appendChild(myPara);
+}
+</script>
+</head>
+<body></body>
+</html>

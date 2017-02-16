@@ -1,0 +1,48 @@
+<html>
+<head>
+<script>
+onload=function(){
+	myh1   = document.createElement("h1")
+	mytext = document.createTextNode("Hello")
+	
+	myimg  = document.createElement("img")
+	myimg.setAttribute("src", "cat.jpg")
+	myimg.width=200
+	
+	mytextbox      = document.createElement("input")
+	mytextbox.type = "text"
+	mytextbox.id   = "t"
+	
+	mytextbox.onkeyup=copyText;
+	
+	myparagraph    = document.createElement("p")
+	myparagraph.id = "p"
+	
+	myh1.appendChild(mytext)
+	document.body.appendChild(myh1)
+	document.body.appendChild(myimg)
+	document.body.appendChild(document.createElement("br"))
+	document.body.appendChild(mytextbox)
+	document.body.appendChild(myparagraph)
+}
+function copyText(){
+	var p = document.getElementById("p")
+	if(p.childNodes.length == 0){
+		theText = document.createTextNode(this.value)
+		p.appendChild(theText)
+	}else{ // there are already child nodes
+		for(let i = 0; i < p.childNodes.length; i++){
+			if(p.childNodes[i].nodeType == 3){ // text node
+				p.childNodes[i].nodeValue = this.value
+				return;
+			}
+		}
+		// found paragraph child nodes, but none of them are text nodes :(
+		theText = document.createTextNode(this.value)
+		p.appendChild(theText)
+	}
+}
+</script>
+</head>
+<body></body>
+</html>

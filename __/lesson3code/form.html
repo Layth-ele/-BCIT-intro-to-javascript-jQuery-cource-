@@ -1,0 +1,67 @@
+<html><head>
+
+<script>
+window.onload=function(){
+	document.forms[0].onsubmit=function(){
+		if(document.getElementById("u").value == ""){
+			document.getElementById("u").style.borderColor="red";
+			alert("missing required username");
+			document.getElementById("u").focus();
+			return false;
+		}else{
+			document.getElementById("u").style.borderColor="black";
+		}
+		if(document.getElementById("e").value == ""){
+			document.getElementById("e").style.borderColor="red";
+			alert("missing required email address");
+			document.getElementById("e").focus();
+			return false;
+		}
+
+
+		if(document.getElementById("e").value.indexOf("@") == -1){
+			document.getElementById("e").style.borderColor="blue";
+			alert("invalid email address");
+			document.getElementById("e").focus();
+			return false;
+		}
+
+
+		if(document.getElementById("y").value == ""){
+			document.getElementById("y").style.borderColor="red";
+			alert("missing required birth year");
+			document.getElementById("y").focus();
+			return false;
+		}
+		if(isNaN(document.getElementById("y").value)){
+			document.getElementById("y").style.borderColor="green";
+			alert("not even a number!");
+			document.getElementById("y").select();
+			return false;
+		}
+
+		if(isNaN(document.getElementById("s").value)){
+			document.getElementById("s").style.borderColor="green";
+			alert("not even a number!");
+			document.getElementById("s").select();
+			return false;
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+
+<form action="fake.php">
+	username: <input type="text" id="u" name="u"/><br/>
+	email:    <input type="text" id="e" name="e"/><br/>
+	year of birth:    <input type="text" id="y" name="y"/><br/>
+	shoe size:<input type="text" id="s" name="s"/><br/>
+	website:<input type="text" id="w" name="w"/><br/>
+
+	<input type="submit"/>
+</form>
+
+</body>
+</html>

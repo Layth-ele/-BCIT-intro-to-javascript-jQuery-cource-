@@ -1,0 +1,1 @@
+document.images[0].width=10;

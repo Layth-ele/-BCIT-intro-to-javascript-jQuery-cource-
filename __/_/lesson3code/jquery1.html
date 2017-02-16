@@ -1,0 +1,18 @@
+<html><head>
+
+<script src="jquery-1.12.0.min.js"></script>
+
+</head>
+<body>
+	<img src="cat.jpg" id="cat" name="cat"> 
+	<img src="bird.jpg"> 
+	<img src="turtle.jpg"> 
+<script>
+
+	$('img').attr('width', '40');
+	$('#cat').attr('src', 'dog.jpg');
+	$('img:last, img:odd').attr('width', 80);
+	$('img:first').css('border', 'dashed pink 2px');
+</script>	
+</body>
+</html>

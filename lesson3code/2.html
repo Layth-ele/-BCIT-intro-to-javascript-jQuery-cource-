@@ -1,0 +1,22 @@
+<html><head><script>
+onload=function(){
+	ims = document.getElementsByTagName("img")
+	
+	for(var i = 0; i < ims.length; i++){
+		ims[i].onclick=function(){
+			// ims[i].width=50 DOES NOT WORK
+			this.width=50
+		}
+	}
+}
+</script>
+</head>
+<body>
+
+<img src="cat.jpg">
+<img src="dog.jpg">
+<img src="fish.jpg">
+<img src="bird.jpg">
+
+</body>
+</html>

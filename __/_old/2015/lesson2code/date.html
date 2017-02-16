@@ -1,0 +1,18 @@
+<html><head>
+<script>
+
+var today = new Date();
+var xmas  = new Date(2016, 11, 25, 0, 0, 0);
+
+var ms    = xmas - today;
+
+var sec   = ms    / 1000;
+var min   = sec   /   60;
+var hours = min   /   60;
+var days  = hours /   24;
+
+alert(days);
+alert(days.toFixed(2));
+alert(Math.round(days));
+
+</script></head><body></body></html>

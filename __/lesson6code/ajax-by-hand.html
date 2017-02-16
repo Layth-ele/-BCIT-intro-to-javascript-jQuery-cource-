@@ -1,0 +1,25 @@
+<html>
+<head>
+<script>
+request = new XMLHttpRequest();
+
+onload=function(){
+	document.getElementById("b").onclick=function(){
+		request.open("GET", "data.txt", true);
+		
+		request.onreadystatechange=function(){
+			document.getElementById("t").value=
+				request.responseText;
+		}
+		
+		request.send();
+	}
+}
+
+</script>
+</head>
+<body>
+<input type="text" id="t"/><br/>
+<input type="button" id="b"/>
+</body>
+</html>

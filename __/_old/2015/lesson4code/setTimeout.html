@@ -1,0 +1,23 @@
+<html><head>
+<script>
+
+function doSomething(){
+	alert("interval");
+	if(document.bgColor == "yellow"){
+		document.bgColor = "white";
+	}else{
+		document.bgColor = "yellow";
+	}
+}
+
+setTimeout("alert('test');", 3000);
+setTimeout("document.bgColor='yellow';", 1000);
+
+setInterval("doSomething();", 4000);
+
+</script>
+</head><body>
+
+
+
+</body></html>

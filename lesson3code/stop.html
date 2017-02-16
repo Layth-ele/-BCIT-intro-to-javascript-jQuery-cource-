@@ -1,0 +1,30 @@
+<html><head>
+
+
+<script>
+	onload=function(){
+		document.links[1].onclick=function(){
+			return false;
+		}
+		
+		document.forms[0].onsubmit=function(){
+			return false
+		}
+	}
+</script>
+
+</head>
+<body>
+
+<a href="http://nhl.com">hockey</a>
+<a href="http://pgatour.com">golf</a>
+<a href="http://fifa.com">soccer</a>
+
+<form action="fake.com">
+	<input type="text">
+	<input type="submit">
+</form>
+
+
+</body>
+</html>

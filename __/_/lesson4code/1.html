@@ -1,0 +1,29 @@
+<html><head><script>
+
+window.onload=function(){
+	
+	disabledLinks = document.getElementById("top").getElementsByTagName("a");
+	
+	for(var i = 0; i < disabledLinks.length; i++){
+		disabledLinks[i].onclick=function(){
+			if(this.href.indexOf("tour") >= 0){
+				return false;
+			}
+		}
+	}
+}
+
+</script></head>
+<body>
+<div id="top">
+	<a href="http://nhl.com">hockey</a>
+	<a href="http://pgatour.com">golf</a>
+	<a href="http://cfl.ca">football</a>
+</div>	
+<div id="bottom">
+	
+	<a href="http://ufc.com">ufc</a>
+	<a href="http://nba.com">basketball</a>
+</div>		
+</body>
+</html>

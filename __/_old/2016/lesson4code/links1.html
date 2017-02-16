@@ -1,0 +1,21 @@
+<html><head>
+
+<script>
+window.onload=function(){
+	for(i = 0; i < document.links.length; i++){
+		document.links[i].onclick=function(){
+			alert(this.href);
+			return false;
+		}
+	}
+}
+
+</script>
+</head><body>
+
+<a href="http://nhl.com">hockey</a> 
+<a href="http://nba.com">basketball</a> 
+<a href="http://nfl.com">football</a> 
+
+
+</body></html>

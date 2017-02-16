@@ -1,0 +1,37 @@
+<html>
+<head>
+<script>
+
+
+
+function change(){
+	alert(this);
+	alert(x);	// 5
+	alert(y);	// not defined
+	this.style.width="50px" // css style property
+}
+
+window.onload=function(){
+	for(let i = 0; i < document.images.length; i++){
+	
+		x = 5;		// global: accessible everywhere
+		var y = 10; // local: accessible in this function
+	
+		document.images[i].onclick=change;//callback function
+	}
+	alert(i); 	// not defined; let is defining only in the FOR
+	alert(y);	// 10
+	document.getElementsByTagName("p")[0].ondblclick=change;
+}
+</script>
+</head>
+<body>
+
+<img src="cat.jpg">
+<p>hi</p>
+<img src="dog.jpg">
+<img src="fish.jpg">
+<img src="bird.jpg">
+
+</body>
+</html>

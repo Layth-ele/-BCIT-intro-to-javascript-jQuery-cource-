@@ -1,0 +1,57 @@
+<html><head><script>
+
+window.onload=function(){
+	
+document.forms[0].onsubmit=function(){
+	for(i = 0; i < this.elements.length; i++){
+		if(this.elements[i].className.indexOf("required")!=-1){
+			if(this.elements[i].value == ""){
+				this.elements[i].style.backgroundColor = 'yellow';
+				alert('missing required field');
+				this.elements[i].focus();
+				return false;
+			}else{
+				this.elements[i].style.backgroundColor = 'white';
+			}
+		}
+		
+		
+		
+		if(this.elements[i].className.indexOf("number")!=-1){
+			if(isNaN(this.elements[i].value)){
+				this.elements[i].style.backgroundColor = 'pink';
+				alert('must be numeric');
+				this.elements[i].select();
+				return false;
+			}else{
+				this.elements[i].style.backgroundColor = 'white';
+			}
+		}		
+		
+	}
+}
+}
+</script></head>
+<body>
+<form action="fake.php">
+	username:
+	<input type="text" name="u" id="u" class="required"><br>
+	
+	year of birth:
+	<input type="text" name="y" id="y" class="required number"><br>
+	
+	shoe size:
+	<input type="text" name="s" id="s" class="number"><br>
+	
+	email:
+	<input type="text" name="e" id="e" class="email required"><br>
+	webpage:
+	<input type="text" name="w" id="w" class="url required"><br>
+	
+	<input type="submit">
+	
+</form>
+
+
+</body>
+</html>

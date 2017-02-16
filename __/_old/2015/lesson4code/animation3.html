@@ -1,0 +1,17 @@
+<html><head>
+<script>
+
+function move(){
+	this.style.left = parseInt(this.style.left) + 1 + "px";
+}
+
+window.onload=function(){
+	document.getElementById("c").onclick=move;
+}
+
+</script>
+</head><body>
+
+<img src="cat.jpg" id="c" style="position:absolute; left:15px">
+
+</body></html>

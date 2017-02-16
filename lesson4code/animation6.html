@@ -1,0 +1,56 @@
+<html><head><script>
+
+nextStep = +1
+imageNumber = 0
+direction = "r"
+
+function move(){
+
+	imageNumber++
+	if(imageNumber >= 30){
+		imageNumber = 0
+	}
+
+	var a = document.images[0];
+	a.style.left = parseInt(a.style.left) + nextStep + "px"
+	a.src="alien/alien" + direction + "walk" + imageNumber + ".gif"
+}
+
+
+function checkKey(e){
+	var theKeyCode = null
+
+	if(e.event){
+		theKeyCode = e.event
+	}else if(e.which){
+		theKeyCode = e.which
+	}else{
+		alert("no key understood")
+		return
+	}
+	
+	if(theKeyCode == 39){
+		nextStep = +1
+		direction="r"
+	}else if(theKeyCode == 37){
+		nextStep = -1
+		direction="l"
+	}
+}
+
+onkeydown=checkKey
+
+onload=function(){
+	var a = document.images[0]
+	
+	setInterval("move()", 10)
+}
+
+</script>
+</head>
+<body>
+
+<img src="alien/alienrwalk0.gif" style="left:15px; position:absolute">
+
+</body>
+</html>

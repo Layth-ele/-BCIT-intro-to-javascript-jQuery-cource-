@@ -1,0 +1,89 @@
+<html><head>
+<style>
+img.selected{
+	border:solid
+}
+</style>
+<script>
+
+function initializePics(){
+	var first = "a"
+	var last  = "z"
+
+	var mydiv = document.createElement("div")
+	mydiv.id = "top"
+	mydiv.style.backgroundColor = "pink"
+	
+	var bottomdiv = document.createElement("div")
+	bottomdiv.id = "bottom"
+	bottomdiv.style.backgroundColor = "cyan"
+	
+	for(let i = first.charCodeAt(0); i <= last.charCodeAt(0); i++){
+		letter = eval("String.fromCharCode(" + i + ")")
+		
+		img           = document.createElement("img")
+		img.src       = "letters/" + letter + ".png"
+		img.id        = letter
+		img.width     = 60
+		img.onclick   = move
+		mydiv.appendChild(img)	
+		
+	}
+	document.body.appendChild(mydiv)
+	document.body.appendChild(bottomdiv)
+	
+	
+}
+function move(){
+	if(this.nextSibling == null){ // last image in this div
+		if(this.parentNode.nextSibling == null){ // there is no "next" div...
+			document.getElementsByTagName("div")[0].insertBefore(this, 
+				document.getElementsByTagName("div")[0].firstChild)
+		}else{
+			this.parentNode.nextSibling.appendChild(this)
+		}
+	}else{
+		this.parentNode.insertBefore(this, this.nextSibling.nextSibling)
+	}
+}
+
+
+function highlightPic(e){
+	var keyCode = null
+	
+	if(e.event){
+		keyCode = e.event
+	}else if(e.which){
+		keyCode = e.which
+	}
+	//alert(keyCode)
+	if(keyCode >= 97 && keyCode <= 122){
+		letter = eval("String.fromCharCode(" + keyCode + ")")
+		//alert(letter)	
+		
+				
+		if(selectedLetter == null){
+			selectedLetter = letter
+		}else{
+			document.getElementById(selectedLetter).className = "unselected"
+			selectedLetter = letter
+		}
+		document.getElementById(selectedLetter).className = "selected"
+	}
+	
+
+}
+
+onload=function(){
+
+	selectedLetter = null
+
+	initializePics();
+	
+	onkeypress=highlightPic
+}
+
+</script>
+</head>
+<body></body>
+</html>

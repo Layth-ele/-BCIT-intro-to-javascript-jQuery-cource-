@@ -1,0 +1,77 @@
+<html><head>
+<script>
+
+currentImageNumber = 0;
+timer = null;
+walkingRight = true;
+
+function changeSrc(){
+	currentImageNumber++;
+	if(currentImageNumber > 30){
+		currentImageNumber = 0;
+	}
+	
+	if(walkingRight == true){
+		document.images[0].src = "alien/alienrwalk" + 
+			currentImageNumber + ".gif";
+	}else{
+		document.images[0].src = "alien/alienlwalk" + 
+			currentImageNumber + ".gif";
+	}
+}
+
+function walk(){
+	im = document.images[0];
+	changeSrc();
+	if(walkingRight == true){
+		im.style.left = parseInt(im.style.left) + 1 + "px";
+	}else{
+		im.style.left = parseInt(im.style.left) - 1 + "px";
+	}
+}
+
+
+
+
+window.onload=function(){
+	
+	timer = setInterval("walk()", 10);
+	
+	document.images[0].onclick=function(){
+		if(walkingRight == true){
+			walkingRight = false;
+			
+		}else{
+			walkingRight = true;
+			
+		}
+	}
+	
+	window.onkeypress=pauseWithSpacebar;
+}
+
+
+function pauseWithSpacebar(e){
+	
+	if(e.event){
+		code = e.keyCode;
+	}else{
+		code = e.which;
+	}
+	
+	if(code == 32){
+	
+		if(timer != null){
+			clearInterval(timer);
+			timer = null;
+		}else{
+			timer = setInterval("walk()", 10);
+		}
+	}
+	
+}
+
+</script>
+</head><body>
+	<img src="alien/alienrwalk0.gif" style="position:absolute; left:10px">
+</body></html>

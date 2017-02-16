@@ -1,0 +1,46 @@
+<html><head>
+<script>
+function moveOver(){
+	//alert(this.src);
+	//alert(this.parentNode.id);
+	
+	if(this.nextSibling == null){
+		document.getElementById("bottom").appendChild(this);
+	}
+	
+	this.parentNode.insertBefore(this, this.nextSibling.nextSibling);
+}
+window.onload=function(){
+
+	h2 = document.createElement("h2");
+	t1 = document.createTextNode("Image Reorganizer");
+	
+	h2.appendChild(t1);
+	
+	div1 = document.createElement("div");
+	div1.id = "top";
+	
+	div2 = document.createElement("div");
+	div2.id = "bottom";
+	
+	for(var i = 0; i < 5; i++){
+		im = document.createElement('img');
+		im.setAttribute('src', i + '.jpg');
+		im.width=150;
+		div1.appendChild(im);
+	}
+	
+	for(var i = 0; i < div1.childNodes.length; i++){
+		div1.childNodes[i].onclick=moveOver;	
+	}
+	document.body.appendChild(h2);
+	document.body.appendChild(div1);
+	document.body.appendChild(div2);
+}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

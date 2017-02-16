@@ -1,0 +1,25 @@
+<html><head>
+
+
+<script>
+window.onload=function(){
+	for(i = 0; i < document.links.length; i++){
+		document.links[i].onclick=function(){
+			alert("about to load the page " + this.href);
+			return false;
+		}
+	}
+	document.forms[0].onsubmit=function(){
+		return false;
+	}
+}
+</script></head><body>
+<a href='http://nhl.com'>hockey</a> 
+<a href='http://nba.com'>basketball</a> 
+<a href='http://fifa.com'>soccer</a> 
+<form action="whatever.php">
+	username:<input type="text" name="u" id="u"><br>
+	<input type="submit">
+</form>
+
+</body></html>

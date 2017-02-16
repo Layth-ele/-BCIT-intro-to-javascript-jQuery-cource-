@@ -1,0 +1,44 @@
+<html><head><style>	img{width:200px;}</style>
+<script>
+
+window.onload=function(){
+	myh1   = document.createElement("h1");
+	mytext = document.createTextNode("javascript");
+	myh1.appendChild(mytext);
+
+	myimg = document.createElement('img');
+	
+	// use for non-standard attributes only:
+	//myimg.setAttribute("src", "dog.jpg");
+	myimg.src = "dog.jpg";
+	
+	mytextbox = document.createElement("input");
+	mytextbox.type = "text";
+	mytextbox.onkeypress=getText;
+	
+	
+	document.body.appendChild(myh1);
+	document.body.appendChild(myimg);
+	document.body.appendChild(mytextbox);
+}
+
+function getText(e){
+	//alert(this);
+	//alert(e);
+	
+	if(e.event){
+		code = e.keyCode;
+	}else{
+		code = e.which;
+	}
+	
+	alert(code);
+	
+	textboxtext = document.createTextNode(this.value);
+	myp = document.createElement("p");
+	myp.appendChild(textboxtext);
+	document.body.appendChild(myp);
+}
+
+</script>
+</head><body></body></html>

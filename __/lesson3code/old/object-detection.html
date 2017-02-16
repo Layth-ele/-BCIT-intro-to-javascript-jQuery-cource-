@@ -1,0 +1,37 @@
+<html><head><script>
+
+
+onload=function(){
+	
+	var d = null;
+	
+	if(document.getElementById){
+		alert('getelementbyid');
+		d = document.getElementById("dog");
+	}else if(document.all){
+		alert('all');
+		d = document.all['dog'];
+	}else if(document.images['dog']){
+		alert('document.dog');
+		d = document.images['dog'];
+	}else if(document.images[0]){
+		alert('document 0');
+		d = document.images[0];
+	}else if(document.body.dog){
+		alert("body.dog");
+		d = document.body.dog;
+	}else{
+		alert('fail');
+	}
+	
+	d.src="cat.jpg";
+	
+}
+
+
+
+</script></head><body>
+<img src="dog.jpg" id="dog" name="dog"> 
+
+
+</body></html>

@@ -1,0 +1,27 @@
+<html><head>
+<script>
+var myTimer = 0;
+
+function move(){
+	document.getElementById("c").style.left = 
+		parseInt(document.getElementById("c").style.left) + 1 + "px";
+}
+
+window.onload=function(){
+	document.getElementById("c").onclick=function(){
+		if(myTimer == 0){
+			myTimer = setInterval("move();", 10);
+		}else{
+			clearInterval(myTimer);
+			myTimer = 0;
+			//document.getElementById("c").style.left = "15px";
+		}
+	}
+}
+
+</script>
+</head><body>
+
+<img src="cat.jpg" id="c" style="position:absolute; left:15px">
+
+</body></html>

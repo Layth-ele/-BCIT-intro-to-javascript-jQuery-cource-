@@ -1,0 +1,32 @@
+<html><head>
+<script>
+
+onload=function(){
+
+	// DOM 1:
+	var p = document.getElementById("mydiv").getElementsByTagName('p')
+	for(let i = 0; i < p.length; i++){
+		p[i].style.color='yellow'
+	}
+
+	// DOM 0:
+	var im = document.images;
+	for(let i = 0; i < im.length; i++){
+		im[i].width=200
+	}
+}
+
+	                
+</script>
+</head><body>
+
+<img src="dog.jpg"><br>
+<p>hello</p>
+
+<div id="mydiv">
+<p>goodbye</p>
+<img src="cat.jpg"><br>
+<img src="fish.jpg"><br>
+<p>the end</p>
+</div>
+</body></html>

@@ -1,0 +1,33 @@
+<html><head>
+<script src="jquery-3.1.1.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+});
+
+$(function(){
+
+});
+
+$(document).ready(function(){
+
+	$('img').click(function(){
+		$(this).attr('src', 'turtle.jpg');
+
+		$(this).css('border', 'red solid 2px');
+
+	});
+
+	$('img:even').click();
+});
+
+</script>
+</head>
+<body>
+	<img src="dog.jpg"/>
+	<img src="cat.jpg"/>
+	<img src="bird.jpg"/>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<script>
+window.onload=function(){
+	for(i = 0; i < document.images.length; i++){
+	
+		// anonymous function
+		document.images[i].onclick=function(){
+			// NO: document.images[i].src="turtle.jpg"
+			this.width=50			// html image attr
+			this.style.width="50px" // css style property
+		}
+	}
+}
+</script>
+</head>
+<body>
+
+<img src="cat.jpg">
+<img src="dog.jpg">
+<img src="fish.jpg">
+<img src="bird.jpg">
+
+</body>
+</html>

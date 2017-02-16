@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>
+      /**
+       * Do not worry about this weatherUrl for now. Basically, this is an API url provided
+       * by Yahoo. Making a request to this url will return weather forecast information
+       * for the city of Vancouver, BC. The format of the response is JSON, which is a popular
+       * format used when using AJAX.
+       */
+      var weatherUrl = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22vancouver%2C bc%22)%20and%20u%20%3D%20"c"&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+
+      /**
+       * Callback which will be called when the response from the request to Yahoo
+       * returns. The object 'data' is the response object provided by Yahoo.
+       */
+      var callback = function(data) {
+        var days = data.query.results.channel.item.forecast;
+        console.log(days);
+		
+		for (var i = 0; i < days.length; i++) {
+			$('body').append('<p>' + days[i].text + '</p>');
+		}
+      };
+	
+	$(document).ready(function() {
+		$('body').append('<h1>Vancouver</h1>');
+		$.get(weatherUrl, null, callback);
+	});	
+	
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head>
+<script>
+
+window.onload=function(){
+	myh1   = document.createElement("h1");
+	myText = document.createTextNode("Welcome");
+	
+	myImg  = document.createElement("img");
+	myImg.setAttribute('src', 'dog.jpg');
+	myImg.width = 200;
+	
+	myImg.onclick=function(){
+		this.src='cat.jpg';
+	}
+	
+	myTextBox = document.createElement('input');
+	myTextBox.type = 'text';
+	
+	
+	myP= document.createElement('p');
+		
+	myh1.appendChild(myText);
+	
+	myTextBox.onkeyup=function(){
+		if(myP.hasChildNodes()){
+			//alert("has children");
+			for(i = 0; i < myP.childNodes.length; i++){
+				if(myP.childNodes[i].nodeType == 3){
+					myP.childNodes[i].nodeValue = myTextBox.value;
+					return;
+				}
+			}
+			alert("no text nodes...just OTHER nodes");
+			myP.appendChild(
+				document.createTextNode(myTextBox.value));
+		}else{
+			//alert("no children");
+			myP.appendChild(
+				document.createTextNode(myTextBox.value));
+		}
+	}
+	
+	document.body.appendChild(myh1);
+	document.body.appendChild(myImg);
+	document.body.appendChild(document.createElement("br"));
+	document.body.appendChild(myTextBox);
+	document.body.appendChild(myP);
+	
+	myTextBox.focus();
+}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html><head><script>
+
+function changeSrc(){
+	alert(x)
+	//alert(y) // not defined
+	//alert(z) // not defined
+	this.width=50
+}
+
+onload=function(){
+	ims = document.getElementsByTagName("img")
+	
+	x = 5
+	var y = 6
+	let z = 7
+	
+	for(var i = 0; i < ims.length; i++){
+		ims[i].onclick=changeSrc
+		
+	}
+}
+</script>
+</head>
+<body>
+
+<img src="cat.jpg">
+<img src="dog.jpg">
+<img src="fish.jpg">
+<img src="bird.jpg">
+
+</body>
+</html>

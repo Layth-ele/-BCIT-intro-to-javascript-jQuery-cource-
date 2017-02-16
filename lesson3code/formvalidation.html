@@ -1,0 +1,43 @@
+<html><head>
+
+<script>
+onload=function(){
+	document.forms[0].onsubmit=function(){
+		if(document.getElementById("u").className.indexOf("required") != -1){
+			alert('missing required username')
+			document.getElementById("u").style.borderColor='red'
+			document.getElementById("u").focus()
+			return false
+		}	
+		if(document.getElementById("y").value == ""){
+			alert('missing required year')
+			document.getElementById("y").style.borderColor='red'
+			document.getElementById("y").focus()
+			return false
+		}
+	
+		if(isNaN(document.getElementById("y").value)){
+			alert(document.getElementById("y").value + ' is not a number')
+			document.getElementById("y").style.borderColor='green'
+			document.getElementById("y").select()
+			return false
+		}	
+	}	
+}
+</script>
+</head>
+<body>
+<form action="fake.com">
+	username:<input class="required" type="text" id="u" name="u">
+	year: <input class="required number" type="text" id="y" name="y">
+	email: <input class="email required" type="text" id="e" name="e">
+	url: <input class="url" type="text" id="url" name="url">
+	
+	
+	
+	<input type="submit">
+</form>
+
+
+</body>
+</html>

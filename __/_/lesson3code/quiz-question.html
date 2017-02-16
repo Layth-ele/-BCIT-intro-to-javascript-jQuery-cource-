@@ -1,0 +1,23 @@
+<html><head><script>
+
+function resizeImage(){
+	alert(x); // global variable
+	//alert(y); // error; not defined here
+	this.width=100;
+	//this.onclick=null;
+}
+
+window.onload = function(){
+	for(var i = 0; i  < document.images.length; i++){
+		x = 50;
+		var y = 60;
+		document.images[i].onclick=resizeImage;
+	}
+}
+</script></head>
+<body>
+	<img src="cat.jpg"> 
+	<img src="dog.jpg">
+	<img src="bird.jpg">
+</body>
+</html>

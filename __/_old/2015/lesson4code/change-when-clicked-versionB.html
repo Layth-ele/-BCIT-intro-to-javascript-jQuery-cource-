@@ -1,0 +1,25 @@
+<html><head><script>
+
+function changeSource()
+{
+	this.src="turtle.jpg";
+}
+
+
+window.onload = function()
+{
+	for(i = 0; i < document.images.length; i++)
+	{
+		document.images[i].onclick=changeSource;
+	}
+}
+
+</script></head><body>
+
+<img src="dog.jpg">
+<p>hi</p>
+<img src="cat.jpg">
+<img src="fish.jpg">
+<img src="bird.jpg">
+<p>bye</p>
+</body></html>
